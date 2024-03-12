@@ -52,9 +52,7 @@ async function makeApiCall(endpoint: string, params: object): Promise<any> {
       retryCount++;
       if (retryCount <= maxRetries) {
         retryAfter = Math.pow(backoffFactor, retryCount - 1) * 1000;
-        console.log(
-          `API rate limit reached. Retrying after ${retryAfter} seconds...`
-        );
+       
       } else {
         console.error("Maximum number of retries exceeded");
       }
